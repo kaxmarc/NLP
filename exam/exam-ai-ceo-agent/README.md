@@ -260,9 +260,9 @@ Both entry points use `ChatOllama(model="qwen3:8b", temperature=0)` for reproduc
 
 ---
 
-## Full report (DOKU-EN-FIN STEP 2)
+## Full report (DOKU-EN-FIN)
 
-_The complete project report, converted from `DOKU-EN-FIN STEP 2.docx`. Figures/screenshots from the original are marked as placeholders._
+_The complete project report, converted from `DOKU-EN-FIN.pdf`.
 
 ### Project
 
@@ -306,15 +306,6 @@ Objective → Planning → Research → Analysis → Decision-making → Recomme
 
 autonomously. The files agent_core.py and agent.py have been added. The data collection, embedding (multilingual-e5-base) and sentiment analysis (nlptown-BERT) from steps 01–03 are reused unchanged.
 
-_[Figure / Screenshot]_
-
-Figure 1: LangChain/LangGraph
-
-Architecture diagram
-
-_[Figure / Screenshot]_
-
-Figure 2: Architecture diagram
 
 ### 1. Data collection (01_sources.py)
 
@@ -347,9 +338,6 @@ A further 8 competitors are covered via separate Google News searches. The corpu
 
 I ruled out using BeautifulSoup for the company’s news channel. Unfortunately, it was not possible to access https://newsroom.lufthansagroup.com/en/ or https://www.lufthansagroup.com/en/newsroom/releases.html directly using BeautifulSoup, as the domain blocks all direct access with a 403 error. This behaviour is familiar from the Data Engineering course, which suggests that bot protection is in place.
 
-_[Figure / Screenshot]_
-
-Figure 3: BeautifulSoup 403
 
 #### Module imports
 
@@ -513,9 +501,6 @@ All texts are converted into vectors. Here, `normalize_embeddings=True` normalis
 
 SQLite is built into Python, requires no server, and consists of just a single file, vectors.db.
 
-_[Figure / Screenshot]_
-
-Figure 4: SQLite Transparency
 
 | Alternative | Rejected on the grounds that: |
 | --- | --- |
@@ -615,9 +600,6 @@ To validate the sentiment step, a small, manually labelled sample of 13 short Ge
 | positive | 0.800 | 1.000 | 0.889 |
 | Accuracy |  |  | 0.923 |
 
-_[Figure / Screenshot]_
-
-Figure 5: Confusion matrix from the model evaluation
 
 #### Alternative NLP techniques
 
@@ -684,9 +666,6 @@ Ollama acts as the technical runtime environment for the qwen3:8b decoder, whils
 
 Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models.
 
-_[Figure / Screenshot]_
-
-Figure 6: qwen3:8b details (Source: https://ollama.com/library/qwen3:8b)
 
 #### Offline validation
 
@@ -1058,37 +1037,5 @@ Section 5 uses the cached `sentiment_per_doc` evaluation. On the left, a pie cha
 #### Addition regarding the LangChain/LangGraph variant
 
 The dashboard has been expanded beyond the original seven sections. A new feature is a dedicated agent section (‘Strategic Agent’), which runs the same agent from agent_core.py interactively and displays the plan, supporting documents, recommendation and validation in real time.
-
-### DEMO: Autonomous Strategic Agent (LangChain / LangGraph)
-
-_[Figure / Screenshot]_
-
-Agent reasoning trace
-
-Step 1: search_evidence(query='Lufthansa competitive position against main competitors 2023') -> 5 docs; evidence [1, 2, 3, 4, 5]
-
-Step 2: search_evidence(query='strategies to strengthen Lufthansa competitive advantage') -> 5 docs; evidence [6, 7, 8, 1, 9]
-
-Evidence pool used by the agent
-
-Evidence 1 · Google News (official) · Score 0.817
-
-Airlines in the Lufthansa Group move even closer together - Lufthansa Group Newsroom
-
-https://news.google.com/rss/articles/CBMingFBVV95cUxOLTc0SGtySGlGcmh2ZWo0eEl3eHloU3dEZkZxUHdEdE44QmdfSmFfZzkwNEIwNGJadnphSUs1ZVhUeUVRS1AzM0M5MUFVM1FXZUUyOVprU1Bha3BaQjVGQzVYd3V1MUFRX29fLWl5cE9mOVRTX3FrcE9faG9QZ3IxUkprazZJLW5GVjhHOEgwWWVQc3R4V3hVWkc2TDNiZw?oc=5
-
-Evidence 2 · Reddit r/lufthansa · Score 0.815
-
-Please read before posting
-
-https://www.reddit.com/r/Lufthansa/comments/1dvv8g6/please_read_before_posting/
-
-Evidence 3 · Yahoo Finance DLAKY · Score 0.813
-
-Lufthansa (XTRA:LHA) Stock After 27.7% One-Year Gain Is The DCF Story Attractive
-
-https://finance.yahoo.com/markets/stocks/articles/lufthansa-xtra-lha-stock-27-091231071.html?.tsrc=rss
-
-Evidence 4 · Yahoo Finance DLAKY · Score 0.812
 
 …
