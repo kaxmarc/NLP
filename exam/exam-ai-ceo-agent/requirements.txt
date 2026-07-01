@@ -1,0 +1,35 @@
+# Installation:  pip install -r requirements.txt
+# The versions correspond to the tested project venv (.venv)
+
+# 01_sources.py
+feedparser==6.0.12
+
+# 02_clean_emb_db.py
+sentence-transformers==5.5.1
+
+# 03_rag.py
+numpy==2.4.6
+transformers==5.12.1
+torch==2.12.1
+
+# 04_llm.py
+# ollama calls the local LLM qwen3:8b (the Ollama service must also be running)
+ollama==0.6.2
+
+# 05_dashboard.py
+streamlit==1.58.0
+plotly==6.8.0
+
+# evaluation_sentiment.ipynb
+scikit-learn==1.9.0
+matplotlib==3.11.0
+ipykernel==7.3.0
+
+# agent_core.py / agent.py  (LangChain / LangGraph agent variant)
+# ChatOllama (LLM) + FAISS (vector store) + @tool tools + LangGraph StateGraph
+# faiss-cpu is required by langchain_community.vectorstores.FAISS
+langchain-core==1.4.8
+langchain-ollama==1.1.0
+langchain-community==0.4.2
+langgraph==1.2.6
+faiss-cpu==1.14.3
