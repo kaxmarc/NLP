@@ -957,9 +957,6 @@ Bag of Words & N-Grams: A classic feature set and a precursor to TF-IDF. N-grams
 
 This script now represents the fifth and final step in the pipeline.  It brings together the components from steps 2 to 4 – such as vectors-db, the semantic search, the sentiment model and the local LLM – into an interactive Streamlit interface. All tasks are now displayed in this single view.
 
-#### Demo / Live demonstration
-Attachment: Demo-Video.mp4
-
 #### Overview
 
 | Input data | vectors.db (from step 2); local Ollama service using qwen3:8b for the LLM sections |
